@@ -100,5 +100,8 @@ ENV/
 # mypy
 .mypy_cache/
 
-# PyCharm things
+# PyCharm settings
 .idea/
+
+# Visual Studio settings
+.vs/
