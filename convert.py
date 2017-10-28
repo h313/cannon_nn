@@ -40,9 +40,13 @@ def csv_from_excel(workbook):
     sheet = wb.sheet_by_index(0)
     csv_file = workbook.parents[1] / (workbook.stem + ".csv")
     with csv_file.open("w+") as csv_file:
-        writer = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
+        writer = csv.writer(csv_file)
         for rownum in range(sheet.nrows):
-            writer.writerow(sheet.row_values(rownum))
+            try:
+                values = map(float, sheet.row_values(rownum))
+                writer.writerow(values)
+            except ValueError:
+                pass
 
 
 def convert_directory(path):
