@@ -4,7 +4,7 @@
 `pip install -r requirements.txt`
 
 ## Preparing data
-The Vasa cannon Doppler radar data comes in the form of Excel workbooks, but for convenience, our scripts assume the data is in `csv` format. Run `convert.py` to convert the `xlsx` folders in `test/` and `train/` to `csv`.
+The Vasa cannon Doppler radar data comes in the form of Excel workbooks, but for convenience, our scripts assume the data is in `csv` format. Run `convert.py` to convert the `xlsx` folders in `test/` and `training/` to `csv`.
 
 `./convert.py test training`
 
