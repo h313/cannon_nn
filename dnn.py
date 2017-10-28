@@ -24,19 +24,19 @@ print(test_X)
 test_y = np.array(data1[1])
 
 model = Sequential([
-    Dense(3, input_shape=(3,)),
-    Activation('relu'),
-    Dense(10),
+    Dense(32, input_shape=(3,)),
     Activation('softmax'),
-    Dense(10),
+    Dense(1000),
+    Activation('softmax'),
+    Dense(1000),
     Activation('softmax'),
     Dense(1),
-    Activation('sigmoid'),
+    Activation('softmax'),
 ])
 
 model.compile(optimizer='rmsprop',
-              loss='binary_crossentropy',
+              loss='mean_squared_error',
               metrics=['accuracy'])
 
 # fit network
-model.fit(train_X, train_y, epochs=10, batch_size=32)
+model.fit(train_X, train_y, epochs=2000, batch_size=32)
