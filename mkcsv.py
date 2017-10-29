@@ -19,13 +19,13 @@ def build_csv(path):
     for csv_file in path.glob("*.csv"):
         f = csv.reader(open(csv_file, newline=''), delimiter=",")
         for row in f:
-            ret.append([row[0], row[1], row[3]])
-    return ret
+            ret.append([row[0], row[1], row[3], row[4], row[5]])
+    return sorted(ret)
 
 
 def write_csv(all_csvs, file):
     csvwriter = csv.writer(open(file + '.csv', 'w', newline=''),
-                            delimiter=' ', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+                            delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
     for row in all_csvs:
         csvwriter.writerow(row)
 

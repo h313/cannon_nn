@@ -8,39 +8,37 @@ test/
 from keras.models import Sequential
 from keras.layers import Dense, Activation
 import numpy as np
-import scipy as sp
 
 # Generate training dataset
-data = np.genfromtxt('./training/Skott1.csv', delimiter=',')
-data = np.swapaxes(data, 0, 1)
-train_X = np.swapaxes(np.array([data[0], data[1], data[3]]), 0, 1)
-train_y = np.array(data[4])
+train_data = np.swapaxes(np.genfromtxt('./training.csv', delimiter=','), 0, 1)
+train_X = np.swapaxes(np.array([train_data[0], train_data[1], train_data[2]]), 0, 1)
+train_y = np.swapaxes(np.array([train_data[3], train_data[4]]), 0, 1)
 
 # Generate testing dataset
-data1 = np.genfromtxt('./training/Skott2.csv', delimiter=',')
-data1 = np.swapaxes(data1, 0, 1)
-test_X = np.swapaxes(np.array([data1[0], data1[1], data1[3]]), 0, 1)
-print(train_X)
-test_y = np.array(data1[1])
+test_data = np.swapaxes(np.genfromtxt('./test.csv', delimiter=','), 0, 1)
+test_X = np.swapaxes(np.array([test_data[0], test_data[1], test_data[2]]), 0, 1)
+test_y = np.swapaxes(np.array([test_data[3], test_data[4]]), 0, 1)
 
-model = Sequential([
-    Dense(32, input_shape=(3,)),
-    Activation('softmax'),
-    Dense(1000),
-    Activation('softmax'),
-    Dense(1000),
-    Activation('softmax'),
-    Dense(1000),
-    Activation('softmax'),
-    Dense(1000),
-    Activation('softmax'),
-    Dense(1),
-    Activation('softmax'),
-])
+# Define the neural network
+model = Sequential()
 
-model.compile(optimizer='rmsprop',
-              loss='mean_squared_error',
+model.add(Dense(3, input_shape=(3,)))
+model.add(Activation('relu'))
+model.add(Dense(units=1000))
+model.add(Activation('softmax'))
+model.add(Dense(units=500))
+model.add(Activation('softmax'))
+model.add(Dense(units=100))
+model.add(Dense(units=2))
+model.add(Activation('softmax'))
+
+# Compile the neural network
+model.compile(optimizer='adam',
+              loss='poisson',
               metrics=['accuracy'])
 
-# fit network
-model.fit(train_X, train_y, epochs=200, batch_size=25)
+# Fit the neural network to data
+model.fit(train_X, train_y, epochs=2, batch_size=15, verbose=1, shuffle=True)
+
+# Print the accuracy and loss of the neural network against training data
+print(model.evaluate(test_X, test_y, verbose=True))
