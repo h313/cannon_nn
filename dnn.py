@@ -20,11 +20,15 @@ train_y = np.array(data[4])
 data1 = np.genfromtxt('./training/Skott2.csv', delimiter=',')
 data1 = np.swapaxes(data1, 0, 1)
 test_X = np.swapaxes(np.array([data1[0], data1[1], data1[3]]), 0, 1)
-print(test_X)
+print(train_X)
 test_y = np.array(data1[1])
 
 model = Sequential([
     Dense(32, input_shape=(3,)),
+    Activation('softmax'),
+    Dense(1000),
+    Activation('softmax'),
+    Dense(1000),
     Activation('softmax'),
     Dense(1000),
     Activation('softmax'),
@@ -39,4 +43,4 @@ model.compile(optimizer='rmsprop',
               metrics=['accuracy'])
 
 # fit network
-model.fit(train_X, train_y, epochs=2000, batch_size=32)
+model.fit(train_X, train_y, epochs=200, batch_size=25)
