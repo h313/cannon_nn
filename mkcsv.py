@@ -19,7 +19,7 @@ def build_csv(path):
     for csv_file in path.glob("*.csv"):
         f = csv.reader(open(csv_file, newline=''), delimiter=",")
         for row in f:
-            ret.append([row[0], row[1], row[3], row[4], row[5]])
+            ret.append([row[0], row[3], row[4], row[5]])
     return sorted(ret)
 
 
