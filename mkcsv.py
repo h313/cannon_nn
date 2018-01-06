@@ -55,5 +55,6 @@ for i in range(len(rows[0])):
 # Write the rows
 with open("data.csv", "w+") as csv_file:
     writer = csv.writer(csv_file)
+    writer.writerow(key)
     for row in rows:
         writer.writerow(row)
