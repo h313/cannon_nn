@@ -1,3 +1,7 @@
+# not commiting built data discourages manually editing it
+data.csv
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
