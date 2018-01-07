@@ -30,3 +30,5 @@ model.compile(optimizer=Adam(),
 
 # Fit the neural network to data
 model.fit(train_X, train_y, epochs=10, batch_size=1, verbose=1, shuffle=True, validation_split=0.01)
+
+model.save('trained_model.h5')
