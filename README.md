@@ -22,11 +22,12 @@ Let's take a look at an individual neuron. Each neuron takes any number of input
 There are two steps to calculate the output of a neuron, based on its inputs:
 
 1. Multiply each input by their appropriate weights, then add up the products. Add the bias to that sum of products.
-Mathematically, it looks like `output = (x_1 * w_1) + (x_2 * w_2) + (x_3 * w_3) + b`. If you're clever, you'll notice that this
-is really just the dot product of `x` and `w`, and you can actually just pretend that `b` is an extra input with a weight of 1.
+Mathematically, it looks like
+![`output = (x_1 * w_1) + (x_2 * w_2) + (x_3 * w_3) + ... + (x_n * w_n) + b`](media/product_sum.png).
+If you're clever, you'll notice that this is really just the dot product of `x` and `w`, and you can actually just pretend that `b` is an extra input with a weight of 1.
 
 2. Take that dot product and run it through an activation function. There are many, including sigmoid, tanh, relu, softplus, and
-gaussian, just to name a few. In our project, we used the sigmoid function, `1 / (1 + e^-x)`, which is a smooth S shape from 0
+gaussian, just to name a few. In our project, we used the sigmoid function, ![`1 / (1 + e^-x)`](media/sigmoid.png), which is a smooth S shape from 0
 to 1. Here's a Desmos graph you can play with: https://www.desmos.com/calculator/uaoczrzax2
 
 The emergent properties of the interconnected neurons allow the network to approximate any algorithm or function, given
