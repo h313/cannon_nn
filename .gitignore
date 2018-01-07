@@ -1,7 +1,4 @@
-# not commiting built data discourages manually editing it
-# data.csv
-# Sorry Jesse my Azure thing isn't building it
-
+data.csv
 trained_model.h5
 
 # Byte-compiled / optimized / DLL files
