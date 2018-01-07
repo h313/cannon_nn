@@ -33,7 +33,7 @@ to 1. Here's a Desmos graph you can play with: https://www.desmos.com/calculator
 The emergent properties of the interconnected neurons allow the network to approximate any algorithm or function, given
 enough time and data to learn from.
 
-Learning is simply gradient descent. A neural network's cost function (in this case, it's our loss function, mean squared error) can be expressed as a function of many variables, or a multidimensional function. Therefore, by finding the gradient at one point of the neural network, we can allow the neural network to "learn" by changing the coordinates in the direction of the gradient until it reaches a minimum. However, it may result in a local minimum and not a global minimum, so a momentum is attached that may allow it to overcome local minimums.
+Learning is simply gradient descent. A neural network's cost function (in this case, it's our loss function, mean squared error) can be expressed as a function of many variables, or a multidimensional function. Therefore, by finding the gradient at one point of the neural network, we can allow the neural network to "learn" by changing the coordinates of the independent variables (in this case, the weights on each neuron), in the direction of the gradient until it reaches a minimum. However, it may result in a local minimum and not a global minimum, so a momentum is attached that may allow it to overcome local minima. There are many different optimizers for the cost function, from which we selected Adaptive Moment Estimation.
 
 ### Sources
 * [Adam: A Method for Stochastic Optimization](https://arxiv.org/abs/1412.6980v8)
