@@ -30,9 +30,11 @@ to 1. Here's a Desmos graph you can play with: https://www.desmos.com/calculator
 The emergent properties of the interconnected neurons allow the network to approximate any algorithm or function, given
 enough time and data to learn from.
 
+Learning is simply gradient descent. A neural network's cost function (in this case, it's our loss function, mean squared error) can be expressed as a function of many variables, or a multidimensional function. Therefore, by finding the gradient at one point of the neural network, we can 
+
 ### Sources
 * [Adam: A Method for Stochastic Optimization](https://arxiv.org/abs/1412.6980v8)
-* [On the Convergence of Adam and Beyond ](https://openreview.net/forum?id=ryQu7f-RZ)
+* [On the Convergence of Adam and Beyond](https://openreview.net/forum?id=ryQu7f-RZ)
 * [Keras: The Python Deep Learning library](https://keras.io/)
 
 ## Running the program
