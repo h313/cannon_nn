@@ -4,7 +4,7 @@
 cannon_nn is a model for the VASA cannon that uses the Keras deep learning library for Python. This model has a verification loss on the scale of 10^-4 on verification data. `dnn.py` contains the code for the neural network and explanations of the choices made. 
 
 ### Blame
-* Jessie Li: visualization, data organization, code structure
+* Jesse Li: visualization, data organization, code structure
 * Haoda Wang: neural network, documentation
 
 ### Sources
