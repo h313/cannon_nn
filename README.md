@@ -35,10 +35,17 @@ enough time and data to learn from.
 
 Learning is simply gradient descent. A neural network's cost function (in this case, it's our loss function, mean squared error) can be expressed as a function of many variables, or a multidimensional function. Therefore, by finding the gradient at one point of the neural network, we can allow the neural network to "learn" by changing the coordinates of the independent variables (in this case, the weights on each neuron), in the direction of the gradient until it reaches a minimum. However, it may result in a local minimum and not a global minimum, so a momentum is attached that may allow it to overcome local minima. There are many different optimizers for the cost function, from which we selected Adaptive Moment Estimation.
 
+### Choosing the inputs and outputs
+We selected two inputs and two outputs for this neural network. We used the data for all 25 shots on the neural network. Thus, we had to account for the charge weight, which is our second input parameter. We did not have to account for the cannonball weight as they did not vary enough for each shot to justify adding it as a parameter. Our first input parameter is obviously time. Our output parameters are `r`, the distance from the cannon, and `v`, the velocity of the cannon.
+
+### Verification
+During each iteration of training the neural network (called an "epoch"), we randomly selected 1% of the about 8,000 values in the training data as verification data. This data was not trained on, but at the end of the training phase of the epoch, the verification data is run through the neural network again, and tested for the loss (mean squared error) and accuracy (as a percentage). This repeats for all 10 epochs.
+
 ### Sources
 * [Adam: A Method for Stochastic Optimization](https://arxiv.org/abs/1412.6980v8)
 * [On the Convergence of Adam and Beyond](https://openreview.net/forum?id=ryQu7f-RZ)
 * [Keras: The Python Deep Learning library](https://keras.io/)
+
 
 ## Running the program
 ### Install requirements
