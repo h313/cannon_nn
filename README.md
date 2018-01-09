@@ -1,7 +1,7 @@
 # cannon_nn
 
 ## Description
-cannon_nn is a model for the VASA cannon that uses the Keras deep learning library for Python. This model has a verification accuracy of `1.00000`. `dnn.py` contains the code for the neural network and explanations of the choices made.
+cannon_nn is a model for the VASA cannon that uses the Keras deep learning library for Python. This model has a verification loss on the order of 10<up>-4</sup>  `dnn.py` contains the code for the neural network and explanations of the choices made.
 
 Final product: https://www.youtube.com/watch?v=pdjgDIxlqRw
 
