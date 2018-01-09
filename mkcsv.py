@@ -39,8 +39,9 @@ def combine_data(data, metadata):
         velocity = row[1]
         x = row[4]
         y = row[5]
+        r = math.sqrt(x**2 + y**2)
 
-        combined.append([time, charge_mass, velocity, x, y])
+        combined.append([time, charge_mass, velocity, r])
     return combined
 
 ALL_METADATA = read_excel(METADATA_PATH)[2:] # first two rows are units
