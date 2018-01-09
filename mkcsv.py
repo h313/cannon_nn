@@ -32,6 +32,7 @@ def combine_data(data, metadata):
     """
     charge_mass = metadata[1]
     shot_mass = metadata[2]
+    angle = metadata[3]
 
     combined = []
     for row in data:
@@ -40,7 +41,7 @@ def combine_data(data, metadata):
         x = row[4]
         y = row[5]
 
-        combined.append([time, charge_mass, velocity, x, y])
+        combined.append([time, angle, charge_mass, velocity, x, y])
     return combined
 
 ALL_METADATA = read_excel(METADATA_PATH)[2:] # first two rows are units
@@ -51,6 +52,13 @@ for workbook in WORKBOOKS_PATH.iterdir():
     shot_number = int(workbook.name[5:-5])
     data = read_excel(workbook)[3:] # first 3 rows are units
     metadata = ALL_METADATA[shot_number - 1]
+
+    # calculate angle of shot based on first data point
+    x = data[1][4]
+    y = data[1][5]
+    angle = math.atan(y / x)
+    metadata.append(angle)
+
     rows += combine_data(data, metadata)
 
 # Normalize columns by dividing by the highest of each one (including time)
