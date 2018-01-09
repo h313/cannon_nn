@@ -4,7 +4,6 @@ The primary file that builds and trains the neural network.
 """
 from keras.models import Sequential
 from keras.layers import Dense, Activation
-from keras.optimizers import Nadam
 import numpy as np
 
 # Generate dataset
@@ -48,7 +47,7 @@ to minimize error. Using Adam, our mean-squared-error during the verification ph
 which for this specific excercise is practically 0.
 MSE is used as the loss function as it is the most commonly used one in such networks.
 '''
-model.compile(optimizer=Nadam(),
+model.compile(optimizer='adam',
               loss='mean_squared_error',
               metrics=['accuracy'])
 
