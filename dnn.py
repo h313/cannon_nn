@@ -27,11 +27,11 @@ The neural network is a dense network consisting of three hidden layers of 10, 2
 Each of these networks use a Sigmoid activation function, 1/(1+e^(-x))
 The input and output layers consist of two units, one for each input and output variable
 '''
-model.add(Dense(3, input_dim=3, kernel_initializer='zeros', activation='sigmoid'))
-model.add(Dense(units=10, kernel_initializer='zeros', activation='sigmoid'))
-model.add(Dense(units=20, kernel_initializer='zeros', activation='sigmoid'))
-model.add(Dense(units=10, kernel_initializer='zeros', activation='sigmoid'))
-model.add(Dense(units=3, kernel_initializer='zeros'))
+model.add(Dense(3, input_dim=3, kernel_initializer='random_normal', activation='sigmoid'))
+model.add(Dense(units=10, kernel_initializer='random_normal', activation='sigmoid'))
+model.add(Dense(units=20, kernel_initializer='random_normal', activation='sigmoid'))
+model.add(Dense(units=10, kernel_initializer='random_normal', activation='sigmoid'))
+model.add(Dense(units=3, kernel_initializer='random_normal'))
 
 # Compile the neural network
 '''
