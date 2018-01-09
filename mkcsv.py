@@ -17,7 +17,7 @@ def read_excel(workbook):
     """
     Reads an excel file (workbook) into a 2D array
     """
-    wb = xlrd.open_workbook(workbook)
+    wb = xlrd.open_workbook(str(workbook))
     sheet = wb.sheet_by_index(0)
     rows = []
     for rownum in range(sheet.nrows):
