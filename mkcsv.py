@@ -10,7 +10,7 @@ import numpy as np
 from pathlib import Path
 
 WORKBOOKS_PATH = Path("xlsx")
-METADATA_PATH = Path("shot_metadata.xlsx")
+METADATA_PATH = "shot_metadata.xlsx"
 
 
 def read_excel(workbook):
