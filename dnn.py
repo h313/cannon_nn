@@ -4,7 +4,7 @@ The primary file that builds and trains the neural network.
 """
 from keras.models import Sequential
 from keras.layers import Dense, Activation
-from keras.optimizers import Adam
+from keras.optimizers import Nadam
 import numpy as np
 
 # Generate dataset
@@ -36,10 +36,10 @@ model.add(Dense(units=3, kernel_initializer='zeros'))
 
 # Compile the neural network
 '''
-The Adaptive Moment Estimation (Adam) optimizer was used to train the network, as RMSprop and SGD did not have the
-necessary momentum to overcome a local minima at loss=0.0350, and RMSprop converged faster than SGD. Therefore,
-we decided that the Adam optimizer, which is essentially RMSprop with momentum, was the best choice for this 
-neural network.
+The Adaptive Moment Estimation (Adam) optimizer with Nesterov momentum  was used to train the network, as RMSprop and 
+SGD did not have the necessary momentum to overcome a local minima at loss=0.0350, and RMSprop converged faster than
+SGD. Therefore, we decided that the Adam optimizer, which is essentially RMSprop with momentum, was the best choice for
+this neural network.
 Adam is a type of gradient descent optimizer, where for each neuron a gradient G is found where
 G = -(E df/ds) * O
 where E is the error of the entire network, df/ds is the derivative of the activation function (sigmoid in this
@@ -48,7 +48,7 @@ to minimize error. Using Adam, our mean-squared-error during the verification ph
 which for this specific excercise is practically 0.
 MSE is used as the loss function as it is the most commonly used one in such networks.
 '''
-model.compile(optimizer=Adam(),
+model.compile(optimizer=Nadam(),
               loss='mean_squared_error',
               metrics=['accuracy'])
 
